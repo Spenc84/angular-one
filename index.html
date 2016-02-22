@@ -1,31 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myEmporium">
 <head>
     <meta charset="UTF-8">
     <title>Angular One</title>
 </head>
-<body>
+<body ng-controller="inventoryCtrl">
 
-<h2>Ryan's Emporium of Worthless Crap</h2>
+  <h2>Ryan's Emporium of Worthless Crap</h2>
 
-<h3>Add new item:</h3>
+  <h3>Add new item:</h3>
 
-<label>Name</label>
-<input type="text" />
+  <label> Name </label>
+  <input ng-model="newItem.name" type="text" />
 
-<br />
+  <br />
 
-<label>Price</label>
-<input type="number" />
+  <label>Price</label>
+  <input ng-model="newItem.price" type="number" />
 
-<br />
+  <br />
 
-<button>Add Awesome Item</button>
+  <button ng-click="addItem()">Add Awesome Item</button>
 
-<ul>
-    <li></li>
-</ul>
+  <ul>
+      <li ng-if="item.name !== hiddenItem" ng-repeat="item in items track by $index">{{ item.name }} - Price: {{ item.price | currency: euro }}
+      <span ng-click="removeItem( $index )">X</span>
+      </li>
+  </ul>
 
+  <ul>
+      <li ng-repeat="item in items">
+        {{ item.name }}
+        <button ng-click="hiddenItem = item.name">Hide This Item</button>
+      </li>
+  </ul>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./inventoryCtrl.js"></script>
 </body>
 </html>
