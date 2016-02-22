@@ -10,16 +10,27 @@
 
   <h3>Add new item:</h3>
 
+<<<<<<< HEAD
   <label> Name </label>
   <input ng-model="newItem.name" type="text" />
+=======
+<label>Name</label>
+<input ng-model="newItem.name" type="text" />
+>>>>>>> 8c946b14510d98bedf29be40fd85d2e1047074a5
 
   <br />
 
+<<<<<<< HEAD
   <label>Price</label>
   <input ng-model="newItem.price" type="number" />
+=======
+<label>Price</label>
+<input ng-model="newItem.price" type="number" />
+>>>>>>> 8c946b14510d98bedf29be40fd85d2e1047074a5
 
   <br />
 
+<<<<<<< HEAD
   <button ng-click="addItem()">Add Awesome Item</button>
 
   <ul>
@@ -38,5 +49,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <script src="./app.js"></script>
   <script src="./inventoryCtrl.js"></script>
+=======
+<button ng-click="addItem()">Add Awesome Item</button>
+
+<br>
+
+<input ng-model="searchTerm.name" type="text">
+<ul>
+    <li ng-if="item.name !== hiddenItem" ng-repeat="item in items | orderBy: 'price' | filter: searchTerm track by $index">
+    	{{ item.name }}, Price: {{ item.price | currency }} 
+    	<span ng-click="removeItem( $index )">X</span>
+    </li>
+</ul>
+
+<ul>
+	<li ng-repeat="item in items">
+		{{ item.name }}
+		<button ng-click="hideItem( item.name )">Hide this item</button>
+	</li>
+</ul>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="./app.js"></script>
+<script src="./inventoryCtrl.js"></script>
+>>>>>>> 8c946b14510d98bedf29be40fd85d2e1047074a5
 </body>
 </html>
